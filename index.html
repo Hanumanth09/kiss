@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiss Day Surprise 💋</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffebf0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background-size: 300px;
+        }
+
+        h1 {
+            color: #d6336c;
+            font-size: 36px;
+            margin-top: 50px;
+            font-style: italic;
+        }
+
+        .kiss-btn {
+            background-color: #ff4d6d;
+            color: white;
+            padding: 15px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .kiss-btn:hover {
+            background-color: #e60044;
+            font-style: oblique;
+        }
+
+        .kiss-img {
+            width: 400px;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .show-kiss {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4d6d;
+            animation: float 4s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-150px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💋 Happy Kiss Day, my wife ❤️</h1>
+    <button class="kiss-btn" onclick="showKiss()">Click for a Surprise baby! 😘</button>
+
+    <img src="https://img.lovepik.com/png/20231112/kiss-clipart-young-man-and-woman-kissing-cartoon-vector_569569_wh860.png" 
+        alt="Surprise Photo" class="kiss-img" id="kissImage">
+
+    <script>
+        function createFloatingHearts() {
+            setInterval(() => {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                
+                heart.style.left = Math.random() * (window.innerWidth - 30) + "px";
+                heart.style.bottom = "0px";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+                
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }, 500);
+        }
+
+        function showKiss() {
+            let kiss = document.getElementById("kissImage");
+            kiss.classList.add("show-kiss");
+        }
+
+        createFloatingHearts();
+    </script>
+
+</body>
+</html>
